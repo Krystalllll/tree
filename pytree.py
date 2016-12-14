@@ -9,6 +9,7 @@ import re
 
 indent = '│   '
 space = '    '
+
 branch = '├── '
 child_branch = '└── '
 
@@ -34,10 +35,10 @@ def print_tree(cpath, padding):
             num_file += 1
         else:
             num_dir += 1
-            f_dir_num, f_file_num = print_tree(os.path.join(cpath, file), padding + next_padding)
-            num_dir += f_dir_num
-            num_file += f_file_num
-    return num_file, num_dir
+            t_num_dir, t_num_file = print_tree(os.path.join(cpath, file), padding + next_padding)
+            num_dir += t_num_dir
+            num_file += t_num_file
+    return num_dir, num_file
 
 
 if __name__ == '__main__':

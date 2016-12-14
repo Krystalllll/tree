@@ -9,7 +9,6 @@ import re
 
 indent = '│   '
 space = '    '
-
 branch = '├── '
 child_branch = '└── '
 
@@ -17,7 +16,7 @@ child_branch = '└── '
 def sort_key(s):
     return re.sub('[^A-Za-z0-9]+', '', s).lower()
 
-
+#reference: http://stackoverflow.com/questions/15312953/choose-a-file-starting-with-a-given-string
 def print_tree(cpath, padding):
     files = [file for file in os.listdir(cpath) if not file.startswith('.')]
     files = sorted(files, key=sort_key)
